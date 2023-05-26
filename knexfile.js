@@ -8,9 +8,16 @@ const sharedConfig = {
 
 module.exports = {
   development: {
-    ...sharedConfig,
-    connection: { filename: './data/database.db3' },
-    seeds: { directory: './data/seeds' },
+    client: 'sqlite3',
+    connection: {
+      filename: './Projeler.db3'
+    },
+    migrations:{
+      directory:"./data/migrations"
+    },
+    seeds:{
+      directory:"./data/seeds"
+    }
   },
   testing: {
     ...sharedConfig,
