@@ -12,12 +12,14 @@ module.exports = {
     connection: {
       filename: './Projeler.db3'
     },
+    useNullAsDefault: true,
     migrations:{
       directory:"./data/migrations"
     },
     seeds:{
       directory:"./data/seeds"
     }
+   
   },
   testing: {
     ...sharedConfig,

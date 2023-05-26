@@ -6,19 +6,19 @@ exports.up = function(knex) {
   const all=knex.schema.createTable("projects",(p)=>{
     p.increments("project_id")
     p.string("project_name").notNullable()
-    p.string("project_decription")
+    p.string("project_description")
     p.string("project_complated")
   })
   .createTable("resources",(r)=>{
     r.increments("resource_id")
     r.string("resource_name").notNullable().unique()
-    r.string("resource_decription")
+    r.string("resource_description")
   })
   .createTable("tasks",(t)=>{
     t.increments("task_id")
     t.string("task_description").notNullable()
     t.string("task_complated")
-    .references("project_id").inTable("projects")
+    t.integer("project_id").references("project_id").inTable("projects")
   })
   return all;
 };
